@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
 from sentence_transformers import SentenceTransformer, util
-import os
 from pydantic import BaseModel
 import PyPDF2
 
