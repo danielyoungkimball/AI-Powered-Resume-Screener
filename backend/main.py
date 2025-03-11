@@ -1,9 +1,18 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, UploadFile, File
 from sentence_transformers import SentenceTransformer, util
 from pydantic import BaseModel
 import PyPDF2
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (change this later for security)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load a pre-trained BERT model for text similarity
 model = SentenceTransformer("all-MiniLM-L6-v2")
